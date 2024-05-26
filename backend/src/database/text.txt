@@ -1,0 +1,3 @@
+SERVER_SECRET='3005'
+TOKEN_SECRET="adil5679" 
+MONGODB_URI="mongodb+srv://adil5679:adil5679@cluster0.00tt7hd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

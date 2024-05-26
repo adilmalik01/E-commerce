@@ -1,0 +1,10 @@
+.bgImage {
+    background-image: url("https://codsoft-landing-page-adil.netlify.app/images/slider-1.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+.shadow:hover {
+    transition: all linear 0.4s;
+  box-shadow: 10px  10px 10px rgba(0, 0, 0, 0.4);
+}
