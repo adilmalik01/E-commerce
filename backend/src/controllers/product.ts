@@ -26,12 +26,8 @@ export async function addProduct(req: Request, res: Response) {
 
     let resp = await db.insertOne(productData);
 
-    try {
-      fs.unlinkSync(req.files[0].path);
-      //file removed
-    } catch (err) {
-      console.error(err);
-    }
+    fs.unlinkSync(req.files[0].path);
+    //file removed
     res.send(resp);
   } catch (e) {
     console.log(e);
@@ -143,7 +139,8 @@ export const update_Product = async (req: Request, res: Response) => {
     }
     // res.send(result);
     // console.log(result);
-
+    fs.unlinkSync(req.files[0].path);
+    //file removed
   } catch (e) {
     res.send({ error: e, message: "error in get all" });
   }

@@ -4,6 +4,7 @@ import moment from "moment";
 import { v2 as cloudinary } from 'cloudinary';
 import { ObjectId } from "mongodb";
 import { Server as SocketIoServer } from 'socket.io';
+import fs from "fs"
 
 const db = client.db("e-commerce").collection("orders");
 const userCollection = client.db("e-commerce").collection("users");
@@ -136,6 +137,8 @@ export const EditProfile = async (req: Request, res: Response) => {
         } else {
             res.status(404).send("User not found");
         }
+        fs.unlinkSync(req.files[0].path);
+        //file removed
     } catch (e) {
         console.log(e);
         res.status(500).send("Internal Server Error");
