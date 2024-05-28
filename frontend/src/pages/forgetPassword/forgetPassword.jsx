@@ -21,7 +21,7 @@ const ForgetPassword = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values);
+   
       try {
         let { data } = await axios.post(`${baseUrl}/api/v1/forget-password`, {
           email: values.email,
@@ -32,7 +32,6 @@ const ForgetPassword = () => {
           navigate("/otp");
         }
       } catch (error) {
-        console.log(error.response.data.message);
         RedAlert(error.response.data.message)
       }
     },

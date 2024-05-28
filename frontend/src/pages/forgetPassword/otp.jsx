@@ -23,21 +23,19 @@ const OTP = () => {
         },
         validationSchema: validationSchema,
         onSubmit: async (values) => {
-            console.log(values);
+           
             try {
                 let { data } = await axios.post(`${baseUrl}/api/v1/otp-send`, {
                     email: localStorage.getItem("email"),
                     otp: values.otpCode
                 });
-                console.log(data);
-
+            
                 if (data.status == "succes") {
                     Alert(data.message);
                     navigate("/reset-password");
                 }
 
             } catch (error) {
-                console.log(error.response.data.message);
                 RedAlert(error.response.data.message)
             }
         },

@@ -39,7 +39,6 @@ const Login = () => {
           password: values.password,
         });
 
-        console.log(data);
 
         if (status == 200) {
           Alert("Login Succesfully");
@@ -48,7 +47,6 @@ const Login = () => {
           }, 1500);
         }
       } catch (error) {
-        console.log(error.response.data);
         RedAlert(error.response.data);
       }
     },

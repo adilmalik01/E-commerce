@@ -85,7 +85,7 @@ const Cart = () => {
     try {
       let myCart = [...state.cart];
       let ind = myCart.find((item) => item._id === productId);
-      console.log(ind);
+
       myCart.splice(ind, 1);
       localStorage.setItem("cart", JSON.stringify(myCart));
       dispatch({

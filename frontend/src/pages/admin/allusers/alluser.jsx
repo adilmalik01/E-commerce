@@ -18,7 +18,7 @@ const Allusers = () => {
         } catch (error) {
             console.log(error);
         }
-        console.log('Deleting user with ID:', userId);
+    
     };
 
     const handleEdit = async (userId) => {
@@ -27,14 +27,11 @@ const Allusers = () => {
             const response = await axios.put(`${baseUrl}/api/v1/update-user/${userId}`, {
                 status: statusSelection.current.value
             });
-            console.log(response);
             fetchUsers()
         } catch (error) {
             console.log(error);
         }
         setSelectedUser(null)
-        console.log("selected", statusSelection.current.value);
-        console.log('Editing user:', userId);
     };
 
     const fetchUsers = async () => {

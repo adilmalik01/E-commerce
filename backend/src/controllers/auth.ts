@@ -135,7 +135,7 @@ export const AllUsers = async (req: Request, res: Response) => {
 export const forgetPassowrd = async (req: Request, res: Response) => {
     let { email } = req.body
     if (!email) {
-        console.log("required field missing");
+
         res.status(403).send("required field missing");
         return;
     }
@@ -148,7 +148,7 @@ export const forgetPassowrd = async (req: Request, res: Response) => {
                 upperCaseAlphabets: false, // Exclude upper case alphabets
                 specialChars: false // Exclude special characters
             });
-            console.log(otp);
+     
 
 
 
@@ -204,7 +204,7 @@ export const forgetPassowrd = async (req: Request, res: Response) => {
             async function sendEmail() {
                 try {
                     let sendEmail = await transporter.sendMail(message);
-                    console.log('Email sent:', sendEmail);
+                    
                 } catch (error) {
                     console.error('Error sending email:', error);
                 }
@@ -237,7 +237,7 @@ export const forgetPassowrd = async (req: Request, res: Response) => {
 export const ReceivedOtp = async (req: Request, res: Response) => {
     let { otp, email }: any = req.body
     if (!email || !otp) {
-        console.log("required field missing");
+    
         res.status(403).send("required field missing");
         return;
     }
@@ -264,7 +264,6 @@ export const ReceivedOtp = async (req: Request, res: Response) => {
 export const updatePassword = async (req: Request, res: Response) => {
     let { password, email }: any = req.body
     if (!email || !password) {
-        console.log("required field missing");
         res.status(403).send("required field missing");
         return;
     }
@@ -294,7 +293,6 @@ export const updatePassword = async (req: Request, res: Response) => {
 
 export const delete_User = async (req: Request, res: Response) => {
     let param: string = req.params.id;
-    console.log(param);
 
     try {
         let result = await db.deleteOne({ _id: new ObjectId(param) });
@@ -313,11 +311,9 @@ export const delete_User = async (req: Request, res: Response) => {
 export const update_user = async (req: Request, res: Response) => {
     let param: string = req.params.id;
     let { status } = req.body;
-    console.log(typeof status);
 
 
     let statusInbolean = status == "true" ? true : false
-    console.log(statusInbolean);
     if (!status) {
         res.send({ message: "Provide Name" });
         return;

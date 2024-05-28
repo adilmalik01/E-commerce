@@ -25,7 +25,6 @@ const Profile = () => {
     ['profile', userId],
     async () => {
       const response = await axios.get(`${baseUrl}/api/v1/user/${userId}`);
-      console.log(response);
       return response.data;
     }
   );
@@ -38,7 +37,6 @@ const Profile = () => {
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
-      console.log(response);
       return response.data;
     },
     {

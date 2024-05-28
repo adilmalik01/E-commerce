@@ -6,9 +6,7 @@ import axios from "axios";
 const OrderDetail = () => {
     let { id } = useParams();
     const [orderDetail, setOrderDetail] = useState([]);
-    orderDetail.map((order) => (
-        console.log(order)
-    ));
+
     const fetchOrderDetail = async () => {
         try {
             let response = await axios.get(`${baseUrl}/api/v1/admin-order/${id}`);

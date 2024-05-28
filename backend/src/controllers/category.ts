@@ -66,7 +66,6 @@ export const update_Category = async (req: Request, res: Response) => {
 // --------------------- DELETE ----------------------------------------
 export const delete_Category = async (req: Request, res: Response) => {
   let param: string = req.params.id;
-  console.log(param);
 
   try {
     let result = await category_db.deleteOne({ _id: new ObjectId(param) });

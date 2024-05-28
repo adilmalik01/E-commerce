@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 const AdminProdut = ({ product }) => {
   const [category, setCategorys] = useState([]);
-  console.log(category);
+
 
 
   const DeleteProduct = async (id) => {
@@ -131,7 +131,6 @@ const AdminProdut = ({ product }) => {
         });
       }
 
-      console.log(id);
     } catch (error) {
       console.log(error);
     }

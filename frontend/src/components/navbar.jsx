@@ -5,7 +5,7 @@ import { GlobalContext } from "../context/context";
 
 const Navbar = () => {
   let { state } = useContext(GlobalContext);
-  console.log(state);
+
   let parseing = JSON.parse(localStorage.getItem("cart")) || [];
   return (
     <>

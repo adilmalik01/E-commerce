@@ -40,7 +40,6 @@ const ResetPassword = () => {
                     password: values.password,
                     email: localStorage.getItem("email")
                 });
-                console.log(data);
                 if (data.status == "succes") {
                     Alert(data.message);
                     navigate("/login");
@@ -48,7 +47,6 @@ const ResetPassword = () => {
                 }
 
             } catch (error) {
-                console.log(error.response.data);
                 RedAlert(error.response.data.message)
             }
         },

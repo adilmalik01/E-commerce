@@ -123,7 +123,6 @@ export const update_Product = async (req: Request, res: Response) => {
       let imgResult = await cloudinary.uploader.upload(req.files[0].path);
       UpdateData.CandinateAvatar = imgResult.secure_url
     }
-    console.log(UpdateData);
     if (!ObjectId.isValid(param)) {
       res.send({ message: "please Provide Valid Id" });
     }
@@ -138,7 +137,6 @@ export const update_Product = async (req: Request, res: Response) => {
       return res.status(500).send({ message: "Failed to update document" });
     }
     // res.send(result);
-    // console.log(result);
     fs.unlinkSync(req.files[0].path);
     //file removed
   } catch (e) {
