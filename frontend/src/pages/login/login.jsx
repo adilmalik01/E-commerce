@@ -24,7 +24,6 @@ let validationSchema = Yup.object({
 });
 
 const Login = () => {
-  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -34,13 +33,13 @@ const Login = () => {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        let { data, status } = await axios.post(`${baseUrl}/api/v1/login`, {
+        let { status } = await axios.post(`${baseUrl}/api/v1/login`, {
           email: values.email,
           password: values.password,
         });
 
 
-        if (status == 200) {
+        if (status === 200) {
           Alert("Login Succesfully");
           setTimeout(() => {
             window.location.reload();

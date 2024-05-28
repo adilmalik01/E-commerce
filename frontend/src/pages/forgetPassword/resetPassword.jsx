@@ -1,6 +1,6 @@
 import baseUrl from "../../core";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Alert, { RedAlert } from "../../components/alert";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -35,12 +35,12 @@ const ResetPassword = () => {
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                let { data, status } = await axios.post(`${baseUrl}/api/v1/reset-password`, {
+                let { data } = await axios.post(`${baseUrl}/api/v1/reset-password`, {
                     email: values.email,
                     password: values.password,
                     email: localStorage.getItem("email")
                 });
-                if (data.status == "succes") {
+                if (data.status === "succes") {
                     Alert(data.message);
                     navigate("/login");
                     localStorage.removeItem("email")

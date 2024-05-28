@@ -30,7 +30,7 @@ const OTP = () => {
                     otp: values.otpCode
                 });
             
-                if (data.status == "succes") {
+                if (data.status === "succes") {
                     Alert(data.message);
                     navigate("/reset-password");
                 }

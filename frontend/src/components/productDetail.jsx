@@ -21,9 +21,10 @@ const ProductDetail = () => {
         }
     }
 
+
     useEffect(() => {
         fetchProduct()
-    }, [])
+    }, [setProduct])
 
 
     return (

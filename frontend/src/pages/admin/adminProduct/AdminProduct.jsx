@@ -1,10 +1,9 @@
 import * as Icon from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
 import Alert from "../../../components/alert";
 import axios from "axios";
 import baseUrl from "../../../core";
 import Swal from "sweetalert2";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const AdminProdut = ({ product }) => {
   const [category, setCategorys] = useState([]);
@@ -64,7 +63,7 @@ const AdminProdut = ({ product }) => {
           const imageInput = document.getElementById("swal-input-image");
           let finalImage;
           const imageFile = imageInput.files[0];
-          if (imageFile == undefined) {
+          if (imageFile === undefined) {
             finalImage = document.getElementById("swal-image-preview").src
           } else {
             finalImage = imageInput.files[0]
