@@ -27,7 +27,7 @@ const ProductDetail = () => {
 
 
     return (
-        <div className="flex flex-col items-center py-8 mt-10">
+        <div className="flex flex-col items-center py-8 mt-20">
             <img src={product[0]?.CandinateAvatar} alt={product[0]?.productName} className="w-64 h-64 object-cover mb-4" />
             <h2 className="text-2xl font-bold mb-2"> {product[0]?.productName}</h2>
             <p className="text-gray-600 mb-2"> <span className="text-black font-medium">Brand</span> : {product[0]?.productBrand}</p>

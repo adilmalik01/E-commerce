@@ -66,10 +66,16 @@ export const update_Category = async (req: Request, res: Response) => {
 // --------------------- DELETE ----------------------------------------
 export const delete_Category = async (req: Request, res: Response) => {
   let param: string = req.params.id;
+  console.log(param);
+
   try {
-    let result: any = await category_db.deleteOne({});
-    res.send("Deleted SuccessFully");
+    let result = await category_db.deleteOne({ _id: new ObjectId(param) });
+    if (result.deletedCount === 0) {
+      res.status(404).send({ message: "Category not found" });
+    } else {
+      res.send("Deleted Successfully");
+    }
   } catch (e) {
-    res.send({ error: e, message: "error in get all" });
+    res.status(500).send({ error: e, message: "Error in delete operation" });
   }
 };

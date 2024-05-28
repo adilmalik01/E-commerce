@@ -24,6 +24,7 @@ import Catergory from "./pages/admin/category/category";
 import ForgetPassword from "./pages/forgetPassword/forgetPassword";
 import OTP from "./pages/forgetPassword/otp";
 import ResetPassword from "./pages/forgetPassword/resetPassword";
+import Allusers from "./pages/admin/allusers/alluser";
 
 function App() {
   let { state, dispatch } = useContext(GlobalContext);
@@ -101,17 +102,18 @@ function App() {
         <div className="admin flex">
           <AdminNavbar />
           <Routes>
-            <Route path="/dashboard" element={<AdminDashboard />} />
-            
-            <Route path="newproduct" element={<AddProduct />} />
-            <Route path="veiwproducts" element={<VeiwProducts />} />
-            <Route path="allorders" element={<AllOrders />} />
-            <Route path="order/:id" element={<OrderDetail />} />
-            <Route path="category" element={<Catergory />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="/" element={<AdminDashboard />} />
+
+            <Route path="/newproduct" element={<AddProduct />} />
+            <Route path="/veiwproducts" element={<VeiwProducts />} />
+            <Route path="/allorders" element={<AllOrders />} />
+            <Route path="/order/:id" element={<OrderDetail />} />
+            <Route path="/category" element={<Catergory />} />
+            <Route path="/allusers" element={<Allusers />} />
+            <Route path="/profile" element={<Profile />} />
             <Route
               path="*"
-              element={<Navigate to="/dashboard" replace={true} />}
+              element={<Navigate to="/" replace={true} />}
             />
           </Routes>
         </div>

@@ -1,6 +1,6 @@
 import express from 'express'
 // import multer from 'multer'
-import { Login, Logout, Signup, AllUsers, forgetPassowrd, ReceivedOtp, updatePassword } from '../controllers/auth'
+import { Login, Logout, Signup, AllUsers, forgetPassowrd, ReceivedOtp, updatePassword, delete_User, update_user } from '../controllers/auth'
 
 
 const router = express.Router()
@@ -18,6 +18,8 @@ const router = express.Router()
 router.post("/signup", Signup)
 router.post("/login", Login)
 router.post("/logout", Logout)
+router.delete("/delete-user/:id", delete_User)
+router.put("/update-user/:id", update_user)
 router.get("/allusers", AllUsers)
 router.post("/forget-password", forgetPassowrd)
 router.post("/otp-send", ReceivedOtp)

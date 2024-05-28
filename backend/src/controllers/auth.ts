@@ -6,6 +6,7 @@ import moment from 'moment';
 import nodemailer from "nodemailer"
 import otpGenerator from 'otp-generator';
 import Mailgen from 'mailgen';
+import { ObjectId } from 'mongodb';
 
 
 const db = client.db("e-commerce").collection("users");
@@ -290,3 +291,49 @@ export const updatePassword = async (req: Request, res: Response) => {
         console.log(e);
     }
 }
+
+export const delete_User = async (req: Request, res: Response) => {
+    let param: string = req.params.id;
+    console.log(param);
+
+    try {
+        let result = await db.deleteOne({ _id: new ObjectId(param) });
+        if (result.deletedCount === 0) {
+            res.status(404).send({ message: "Category not found" });
+        } else {
+            res.send("Deleted Successfully");
+        }
+    } catch (e) {
+        res.status(500).send({ error: e, message: "Error in delete operation" });
+    }
+};
+
+
+
+export const update_user = async (req: Request, res: Response) => {
+    let param: string = req.params.id;
+    let { status } = req.body;
+    console.log(typeof status);
+
+
+    let statusInbolean = status == "true" ? true : false
+    console.log(statusInbolean);
+    if (!status) {
+        res.send({ message: "Provide Name" });
+        return;
+    }
+    if (!ObjectId.isValid(param)) {
+        res.send({ message: "please Provide Valid Id" });
+    }
+    try {
+        let result: any = await db.updateOne(
+            { _id: new ObjectId(param) },
+            { $set: { isAdmin: statusInbolean } }
+        );
+
+        res.send(result);
+
+    } catch (e) {
+        res.send({ error: e, message: "error in get all" });
+    }
+};

@@ -126,8 +126,8 @@ const Cart = () => {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto h-[100vh] mt-20 items-center p-4 flex flex-col lg:flex-row">
-        <div className="w-full lg:w-2/3 lg:mr-4 h-[80%] overflow-auto mb-4 lg:mb-0">
+      <div className="max-w-4xl mx-auto h-[100vh] mt-32 items-center p-4 flex flex-col lg:flex-row">
+        <div className="w-full lg:w-2/3 lg:mr-4 min-h-[50%] overflow-auto  lg:mb-0">
           <div className="border border-gray-300 rounded-lg p-4 mb-4">
             <h3 className="text-lg font-semibold mb-2">Your Cart</h3>
             {cartItems.length ? (

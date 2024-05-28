@@ -67,10 +67,17 @@ const AdminDashboard = () => {
         });
     }, []);
 
+
+
+    const removeNotification = (NId) => {
+        notifications.splice(NId, 1)
+        console.log(NId);
+    }
+
     const style = {
         container: "w-4/5 absolute right-0 flex justify-center min-h-screen",
         statsContainer: "flex justify-between gap-3 p-5 w-4/5 h-52 mt-10",
-        center: "flex justify-center mt-5 items-center w-72 min-h-16 bg-[#F5C01D] rounded-xl text-center text-white font-bold",
+        center: "flex justify-center mt-5 items-center flex-col w-72 min-h-16 bg-[#F5C01D] rounded-xl text-center text-white font-bold",
         statBox: "bg-green-700 px-5 flex flex-col gap-3 justify-center w-1/3 h-full",
         statTitle: "font-semibold text-3xl",
         statValue: "font-medium text-2xl",
@@ -95,11 +102,16 @@ const AdminDashboard = () => {
             {notifications.length > 0 && (
                 <div className="notifications flex flex-col  min-h-52   absolute right-4">
                     {notifications.map((notification, index) => (
-                        <Link to={`/order/${notification._id}`}>
-                            <div data-aos="fade-down" className={style.center} key={index}>
-                                <p>New order from {notification.userName}</p>
-                            </div>
-                        </Link>
+                        <div data-aos="fade-down" className={style.center} key={index}>
+                            <button
+                                onClick={(notification) => { removeNotification(index) }}
+                                className="w-[100px] h-9 bg-yellow-700">close</button>
+                            <Link to={`/order/${notification._id}`}>
+                                <div>
+                                    <p>New order from {notification.userName}</p>
+                                </div>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             )

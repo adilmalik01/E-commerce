@@ -10,7 +10,7 @@ const AdminNavbar = () => {
 
   return (
     <>
-      <div className="h-screen fixed left-0 w-1/5 bg-white border-r border-black/50 ">
+      <div className="h-screen fixed overflow-auto left-0 w-1/5 bg-white border-r border-black/50 ">
         <div className="w-full h-32 flex justify-center items-center ">
           <h1 className=" font-semibold text-5xl">Invento</h1>
         </div>
@@ -32,6 +32,9 @@ const AdminNavbar = () => {
           </Link>
           <Link className={styles.style1} to={"/allorders"}>
             All Orders
+          </Link>
+          <Link className={styles.style1} to={"/allusers"}>
+            All Users
           </Link>
           <div
             onClick={async () => {
